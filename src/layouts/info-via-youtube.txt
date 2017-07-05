@@ -1,0 +1,189 @@
+These layouts are where you would import your fonts, Rafi from Zurb says. (I wonder though, whether it's required, or you can just import into your css.)
+
+PARTIALS
+You can optimize by moving the repeatable stuff from pages to partials and including the partial in the layout template. (See examples in layout folder) You can use a partial inside a partial. For example, in the default page template, you see this partial: {{> body}} Note the difference to the syntax for a variable. This partial is actually a Handlebar include.
+
+You can also use a partial directly in a page when you don't want it everywhere.
+
+In his example - https://www.youtube.com/watch?v=UMO7Udzu4OI -, he is using a complete index page, and breaking it into partials for the reusable components.
+
+SUBPAGES
+Create a folder inside the 'pages' folder, for subpages. Even a page with no added content will be created, just from whatever is in the template.
+
+FRONT MATTER
+How do you use additional templates/layouts when you create them?
+You use FRONT MATTER: At the top of the page file, you add something like:
+---
+layout: basic-external-footer
+---
+
+'layout' is a built-in variable in Panini. Front matter is created  with the 3 dashes.
+
+MORE ABOUT FRONT MATTER
+It let's you set variables, define layouts. This is yaml syntax.
+
+VARIABLES
+One thing you can do is put a variable for the page title in a layout. Example: <title>{{page}}</title> would use the file name of the page (striking the .html part, of course). Or, use a custom variable, example <title>{{custom-title}}</title>, and you  use the front matter in the page to define that variable, like this:
+
+---
+custom-title: Welcome to the Site
+---
+
+Another example is a partial, say, hero.html, that will be injected into a page. It could have a div with ... <div class="post-date">{{post-date}}</div> (doesn't need the greater-than symbol because not a partial. Then, in the page, the front matter would have
+
+---
+custom-title: Welcome to the Site
+post-date: 7/4/2016
+---
+
+PANINI HELPERS AND DATA
+https://www.youtube.com/watch?v=P_uT3wnR7yo (Rafi from ZURB)
+
+IF
+To use a Handlebars helper, example of an 'if' helper to decide whether to use a certain partial:
+{{#if special-footer}}
+  {{> special-footer}}
+{{/if}}
+That if statement is looking at the front matter of a page, would be looking for special-footer: true (or false)
+This is built into Handlebars
+
+IFPAGE
+And other helpers are panini-specific, example:
+{{#ifpage 'index'}}
+  {{> hero}}
+{{/ifpage}}
+
+ or indicate multiple pages:
+{{#ifpage 'index' 'page-two'}}
+  {{> hero}}
+{{/ifpage}}
+
+UNLESSPAGE
+A similar helper is unless (unless I'm on the index page, show the hero):
+{{#unlesspage 'index'}}
+  {{> hero}}
+{{/unlesspage}}
+
+IFLAYOUT
+You can use this for layout as well. Ex.:
+{{#iflayout 'default'}}
+  {{> hero}}
+{{/iflayout}}
+
+IFEQUAL
+Foundation worked out how to use one footer partial, even to work on the microsites.
+So in the footer partial, you see <div class="zurb-footer-top bg-fblue layout-{{layout}}"> (there you see a layout variable helper that will call different CSS depending on the layout) AND you see:
+<div class="property-info">
+  {{#ifequal layout 'default'}}
+    <h3>Foundation</h3>
+    <p>This is a generic footer line for the global site.</p>
+  {{/ifequal}}
+
+  {{#ifequal layout 'sites'}}
+    <h3>Foundation for Sites</h3>
+    <p>This is a footer line for a specific product.</p>
+  {{/ifequal}}
+
+  {{#ifequal layout 'emails'}}
+    <h3>Foundation for Emails</h3>
+    <p>This is a footer line for another specific product.</p>
+  {{/ifequal}}
+</div>
+(The variable 'layout' can be anything.)
+
+The REPEAT HELPER is specific to Panini and great for prototyping, as a timesaver:
+Say you are laying out a gallery of cards. You can build one card and wrap it in a repeat -
+<div class="row small-up-2 medium-up-3">
+  {{#repeat 12}}
+  <div class="column">
+    {{> building-block-card}}
+  </div>
+  {{/repeat}}
+</div>
+
+Panini has a CODE HELPER so you can display code in a page
+{{#code}}
+  [a bunch of code, will display as if wrapped by you in pre and code tags]
+{{/code}}
+
+There is also a helper for markdown:
+{{#markdown}}
+  # Title
+  Lorem whatever and some **bold text** and ...
+  - Item 1
+  - Item 2
+  - Item 3
+{{/markdown}}
+
+RAW HELPER, Panini will pass over other handlebars stuff without processing (say you are using your own handlebar system) if you use:
+{{{{raw}}}} as a wrapper
+
+EACH HELPER  is meant to iterate through data sets, (arrays, lists...)
+So to make a list of menu items for navigation, you can use data and the each helper in Panini. 'nav' is a variable:
+Put this in the navigation partial:
+<ul class="menu">
+  {{#each nav}}
+  <li><a href="{{link}}">{{text}}</a></li>
+  {{each}}
+</ul>
+Then put this yaml syntax to create the data array in the page's front matter:
+---
+[other front matter]
+nav:
+-
+  link: 'http://foo'
+  text: 'Some text'
+---
+well that will only work for the first list item. So continue like this:
+---
+[other front matter]
+nav:
+-
+  link: 'http://foo'
+  text: 'Some text'
+-
+  link: 'http://www.google.com'
+  text: 'Other'
+---
+
+That's not the cleanest way to do sitewide, reusable data. You may want to go into the data folder and create separate files. It can be JSON or YAML, both will work.
+Example is .yml, so put this in a .yml file called global:
+nav:
+-
+  link: 'http://foo'
+  text: 'Some text'
+-
+  link: 'http://www.google.com'
+  text: 'Other'
+-
+  link: 'http:www.cnn.com'
+  text: 'News'
+-
+  link: 'http://www.temple.edu'
+  text: 'Uni'
+
+  You would call the above data with a partial (his is called filter-nav.html) that points to the data file, and the front matter call is not needed:
+global.nav may be confusing. global refers to the yml file and nav refers to the variable found in the file. All the objects found in that variable are consumed.
+  <ul class="menu vertical">
+    {{#each global.nav}}
+    <li><a href="{{link}}">{{text}}</a></li>
+    {{each}}
+  </ul>
+
+
+https://www.youtube.com/watch?v=aozyoRwX-Lo (Learn Advanced Panini Tips and Tricks)
+A common question: how to set the active class on a current menu item?
+You use Panini's handlebar helpers...
+You can have this menu list be a reusable component, a partial, across multiple pages even though it needs to have a difference depending on the site section. Wrap the list item in the ifpage helper...
+
+<ul class="menu vertical">
+  <li class="docs-nav-title">Getting Started</li>
+  <li><a href="install.html" {{#ifpage 'install'}}class="active"{{/ifpage}}>Installation</a></li> [you may have a case, with class chaining (adding more classes), where you'd want this piece inside the quote after 'class']
+  <li><a href="starter-projects.html" class="{{#ifpage 'starter-projects'}}active{{/ifpage}}">Starter Projects</a></li>
+  <li><a href="compatibility.html" class="{{#ifpage 'compatibility'}}active{{/ifpage}}">Compatibility</a></li>
+  <li><a href="a11y.html class="{{#ifpage 'a11y'}}active{{/ifpage}}"">Accessibility</a></li>
+  <li><a href="kitchen-sink.html" class="{{#ifpage 'kitchen-sink'}}active{{/ifpage}}">Kitchen Sink</a></li>
+</ul>
+
+Anther example is a set of buttons on a ZURB page. The buttons have a class 'filter-nav-button' and may have the class 'active.' Rafi simplifies it to a single button template.
+ 
