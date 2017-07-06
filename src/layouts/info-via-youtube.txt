@@ -185,5 +185,30 @@ You can have this menu list be a reusable component, a partial, across multiple 
   <li><a href="kitchen-sink.html" class="{{#ifpage 'kitchen-sink'}}active{{/ifpage}}">Kitchen Sink</a></li>
 </ul>
 
-Anther example is a set of buttons on a ZURB page. The buttons have a class 'filter-nav-button' and may have the class 'active.' Rafi simplifies it to a single button template.
- 
+
+Anther example is a set of buttons on a ZURB page. The buttons have a class 'filter-nav-button' and may have the class 'active.' Rafi simplifies it to a single button template. This is the partial in the partial/navigation subfolder:
+{{#each global}}
+<button class="filter-nav-button {{classes}}"><img src="{{img}}" class="inject-me bb-filter-icons" width="" height="" title="{{title}}" alt="{{title}} icon"><span>{{title}}</span></button>
+The data for this is in global.yml in the data folder and it looks like:
+            filter-nav:
+              -
+                img: ../assets/img/icons/calJuly26.jpg
+                title: Featured
+                alt: Layout
+                classes: active
+              -
+                img: ../assets/img/icons/comments32.gif
+                title: Navigation
+                alt: layout
+              -
+                img: ../assets/img/icons/telephone48.jpg
+                title: Status
+                alt: layout
+              -
+                img: ../assets/img/icons/video_camera.jpg
+                title: Media
+                alt: layout
+
+
+  Last example is setting up reusable cards of two types. One has additional lines of info at the bottom. You don't have to make 2 different partials, you can make these both from one partial. You create a type using Panini helpers. Best practice dictates you wrap the more complex form in Panini helpers.
+  See example of the partial cards-with-helpers.html. It uses the #ifequal helper with a variable named 'type'.  It is actually used twice, two different places in the card.        

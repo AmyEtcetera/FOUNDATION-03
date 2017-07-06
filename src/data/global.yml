@@ -1,0 +1,22 @@
+filter-nav:
+  -
+    img: ../assets/img/icons/calJuly26.jpg
+    title: Featured
+    page: 'index'
+    alt: Layout
+    classes:
+  -
+    img: ../assets/img/icons/comments32.gif
+    title: Navigation
+    page: 'pg3'
+    alt: layout
+  -
+    img: ../assets/img/icons/telephone48.jpg
+    title: Status
+    page: 'otherway'
+    alt: layout
+  -
+    img: ../assets/img/icons/video_camera.jpg
+    title: Media
+    page: 'pg2'
+    alt: layout
