@@ -1,0 +1,9 @@
+{{#each failedjsontest.personArray}}
+<p>Successful loop through yml array: {{fullname}}, {{title}}</p>
+{{/each}}
+<hr>
+{{#each happyjsontest.personArray}}
+<p>Successful loop through json array: {{'fullname'}}, {{'title'}}</p>
+{{/each}}
+<hr>
+<p>Call one value of json file: {{happyjsontest.personArray.0.title}}</p>

@@ -1,0 +1,9 @@
+personArray:
+  -
+    fullname : "Amy L"
+    title : "Staff Auteur"
+    link : "http://www.google.com"
+  -
+    fullname : "Cat Dog"
+    title : "Runner"
+    link : "http://www.cnn.com"

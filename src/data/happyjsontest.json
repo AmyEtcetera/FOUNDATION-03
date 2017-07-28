@@ -1,0 +1,15 @@
+{
+	"personArray": [{
+			"fullname": "Amy L",
+			"title": "Staff Auteur",
+			"link": "link 1"
+		},
+
+		{
+			"fullname": "Cat Dog",
+			"title": "Runner",
+			"link": "link 2"
+		}
+	]
+
+}

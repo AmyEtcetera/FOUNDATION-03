@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="{{root}}assets/css/app.css">
   </head>
   <body>
-    <h1>handlebars template</h1>
-    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
-    {{> body}}
 
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    <h1>component-list template</h1>
+    {{> component-list}}
+    {{> body}}
+    {{> filter-nav}}
     <script src="{{root}}assets/js/app.js"></script>
   </body>
 </html>
