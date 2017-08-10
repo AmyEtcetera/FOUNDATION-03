@@ -1,7 +1,7 @@
 <div class="grid-container">
   <div class="grid-x grid-margin-x">
     <div class="large-12 cell">
-      <h1>Page 1</h1>
+      <h1>Page 1 - index</h1>
         {{> test}}
     </div>
   </div>
@@ -17,6 +17,7 @@
         <div class="grid-x grid-margin-x">
           <div class="large-4 medium-4 cell">
             <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
+            <p>Did you know sometimes the same div can be both row and column? Does that work with grid-x?</p>
           </div>
           <div class="large-4 medium-4 cell">
             <p><a href="http://zurb.com/university/code-skills">Foundation Code Skills</a><br />These online courses offer you a chance to better understand how Foundation works and how you can master it to create awesome projects.</p>
@@ -51,21 +52,12 @@
       </div>
       <div class="grid-x grid-margin-x">
         <div class="large-6 medium-6 cell">
-          <div class="primary callout">
-            <p>[Six cell]</p>
-
-       <!-- <script type="text/x-handlebars-template" id="itemTemplate">
-            {{{{raw}}}}<div class="itemTemplateWrapper">
-                <div><span>Name: </span><span>{{first}}</span> <span>{{last}}</span></div>
-                <div><span>Address: </span><span>{{address}}</span>, <span>{{city}}</span></div>
-                <div><span>Dues Paid?: </span><span>{{duespaid}}</span></div>
-            </div> {{{{/raw}}}}
-        </script>-->
-
+          <div class="secondary callout">
+            <p>[Six column cell]</p>
               <h3>Simple Templates with Handlebars JS</h3>
         <p>This example would embed the template directly in the source HTML. Needs more research first, how to include and run handlebars.js when it is probably already included somewhere in the original js files.</p>
         <!-- This is the container where the templates will be instantiated -->
-        <div id="hbars-container"></div>
+        <div id="hbars-container">{{> failedjson}}</div>
           </div>
         </div>
         <div class="large-6 medium-6 cell">
@@ -154,11 +146,17 @@
     </div>
 
     <div class="large-4 medium-4 cell">
-      <h5>Try one of these buttons:</h5>
+      <p>This div large-4 medium-4 cell.</p>
+      <h5>Buttons: these examples are button class on a link</h5>
       <p><a href="#" class="small button">Simple Button</a><br/>
-      <a href="#" class="medium success button">Success Btn</a><br/>
-      <a href="#" class="medium alert button">Alert Btn</a><br/>
-      <a href="#" class="medium secondary button">Secondary Btn</a></p>
+      <a href="#" class="medium success button">Success Button</a><br/>
+      <a href="#" class="medium alert button">Alert Button</a><br/>
+      <a href="#" class="medium secondary button">Secondary Button</a></p>
+      <h5>Buttons: these examples are button class on a button</h5>
+      <button><a href="#" class="small button">Simple Button</a></button><br>
+      <button><a href="#" class="medium success button">Success Button</a></button><br>
+      <button><a href="#" class="medium alert button">Alert Button</a></button><br>
+      <button><a href="#" class="medium secondary button">Secondary Button</a></button>
       <div class="callout">
         <h5>So many components, girl!</h5>
         <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>

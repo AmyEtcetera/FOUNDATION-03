@@ -6,7 +6,9 @@
   font-weight: 400;
 }
 .top-bar, .top-bar ul {
-  background-color:#9b0f29;
+  //background-color:#9b0f29;
+  //background-color:#0a0a0a;
+  background-color:#444;
   color: $white;
     // hover is not working, needs resolution
   a, a:hover {
@@ -30,7 +32,45 @@
   background-color: #666;
   line-height: 50px;
   height: 50px;
-  color: white;
+  color: $white;
   text-align: center;
   margin-bottom: 30px;
+}
+.above-all{
+  z-index: 1;
+}
+.svg-here { background-image: url(../img/svg/svg-test-01.svg); }
+.nav-search-input{padding:0;margin-top:1rem;margin-left:1rem;}
+.nav-search-input-btn{padding:0;margin-top:1rem;}
+
+.menu .active > a {
+    background: $black;
+    //color: #fefefe;
+    border-radius:2px;
+}
+.dropdown.menu.medium-horizontal > li.is-dropdown-submenu-parent > a::after {
+    border-color: $white transparent transparent;
+}
+.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
+    border-color: $white transparent transparent;
+}
+// <ul class="menu vertical first-sub submenu is-accordion-submenu is-active"
+.vertical.first-sub.submenu.is-accordion-submenu{
+  margin-left:1rem;
+}
+.footer-links{
+  font-size: 88%;
+}
+.footer-text{
+  font-size: 88%;
+}
+.smaller-text-60{
+  font-size: 60%;
+}
+.logo-padding{
+  padding-bottom:20px;
+  padding-top: 10px;
+}
+.smaller-line-ht{
+  line-height: 2rem;
 }

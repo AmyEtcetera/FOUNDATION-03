@@ -7,34 +7,61 @@
   </div>
 </div>-->
 
-
-<nav role="navigation" data-sticky-container>
+<nav role="navigation" class="above-all" data-sticky-container><!-- If a page includes more than one navigation landmark, each should have a unique label.
+    Each navigation landmark should have an h2 element, which maybe rendered off screen.
+    If there are more than one navigation landmarks on the page, use aria-labelledby to reference the h2 elements for labeling each landmark:
+    <nav aria-labelledby="nav2">
+    <h2 id="nav2">title for navigation 2<h2>
+   http://courses.cita.illinois.edu/structure/slide12.html -->
+<!-- this div replaces the larger menu, id=responsive-menu, at medium and smaller -->
 <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
   <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
   <div class="title-bar-title">MENU</div>
 </div>
-<div class="top-bar" id="responsive-menu" data-sticky data-options="marginTop:0;" style="width:100%">
+<!--
+<div class="top-bar" id="responsive-menu"  data-sticky data-options="anchor:page;marginTop:0;" style="width:100%" data-top-anchor="1">
+-->
+<div class="top-bar stacked-for-medium" id="responsive-menu" data-sticky data-options="anchor:page;marginTop:0;" style="width:100%">
+
   <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-    <!--  <li class="menu-text hide-for-medium">IOD</li>-->
+    <ul class="vertical medium-horizontal menu" data-responsive-menu="accordion medium-dropdown">
+    <!-- <ul class="dropdown menu" data-dropdown-menu> -->
+      <li><a href="#">About Us</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#" class="">Vision and Mission</a></li>
+          <li><a href="#">Directions</a></li>
+          <li><a href="#">Staff List</a></li>
+          <li><a href="#">Feedback</a></li>
+          <li><a href="#">Mailing List</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">Our History</a></li>
+        </ul>
+      </li>
       <li class="has-submenu">
         <a href="#">Programs</a>
         <ul class="submenu menu vertical" data-submenu>
           <li><a href="#" class="">Advocacy</a></li>
           <li><a href="#">Technology</a></li>
+          <li><a href="#">PIAT</a></li>
           <li><a href="#">Education</a></li>
           <li><a href="#">Policy</a></li>
         </ul>
       </li>
-      <li class="active"><a href="#">News</a></li>
+      <li><a href="#">Education and Training</a></li>
+      <li class="active"><a href="#">Services</a></li>
+      <li><a href="#">Research</a></li>
       <li><a href="#">Calendar</a></li>
+      <li><a href="#">News</a></li>
     </ul>
   </div>
+
   <div class="top-bar-right">
     <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
+      <li><input type="search" placeholder="Search" class="nav-search-input"></li>
+      <li><button type="button" class="button nav-search-input-btn">Search</button></li>
     </ul>
   </div>
+
 </div>
+
 </nav>

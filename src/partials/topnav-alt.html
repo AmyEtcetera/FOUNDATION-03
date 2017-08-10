@@ -1,0 +1,40 @@
+<!-- responsive menu with toggle click trigger on mobile  -->
+<!-- a second version, because let's kick these tires  -->
+<!--<div data-sticky-container>
+  <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+    <div class="title-bar-left">ooooo</div>
+    <div class="title-bar-right">pppp</div>
+  </div>
+</div>-->
+
+<nav role="navigation" data-sticky-container>
+<div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+  <button class="menu-icon" type="button" data-toggle="responsive-menu"></button>
+  <div class="title-bar-title">MENU</div>
+</div>
+<div class="top-bar" id="responsive-menu" data-sticky data-options="marginTop:0;" style="width:100%">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+    <!--  <li class="menu-text hide-for-medium">IOD</li>-->
+      <li><a href="#">About Us</a></li>
+      <li class="has-submenu">
+        <a href="#">Programs</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#" class="">Advocacy</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">Policy</a></li>
+        </ul>
+      </li>
+      <li class="active"><a href="#">News</a></li>
+      <li><a href="#">Calendar</a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li><input type="search" placeholder="Search"></li>
+      <li><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
+</nav>

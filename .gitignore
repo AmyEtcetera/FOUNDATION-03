@@ -8,3 +8,4 @@ hide-extra-stuff
 *.bak
 *.zip
 *.txt
+*/assets/img/*

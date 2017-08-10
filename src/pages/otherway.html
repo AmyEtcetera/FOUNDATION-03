@@ -1,7 +1,16 @@
 ---
-title: The Other Way
+title: Page Title - The Other Way
 description: The Other Way is the best way, sometimes. Learn more.
 ---
-<h1>{{title}}</h1>
-<p>{{description}}</p>
-<h2>You are here: {{page}}</h2>
+<div class="grid-container">
+  <div class="grid-x">
+    <div class="cell">
+
+    <h1>{{title}}</h1>
+    <p>This page uses <code>front matter, for title</code> in the h1, and <code>front-matter-defined description</code> in a paragraph, and <code>for the page</code> in the h2 (you are here). These are defined in the header between the dashes, aka FRONT MATTER.</p>
+    <p>Description from page's front matter: &quot;{{description}}&quot;</p>
+    <h2>You are here: <strong>{{page}}</strong> is page name defined by the actual document name</h2><br>
+    
+    </div>
+  </div>
+</div>
