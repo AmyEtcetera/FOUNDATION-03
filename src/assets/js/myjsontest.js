@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function() { // hey, document.ready is the old way. check joe chellman for new
 
 	$.getJSON('data.json', function(info){
 

@@ -12,9 +12,11 @@
   <body>
     {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
     {{> header}}
-    {{> topnav}}
+    {{> accordion-dropdown-in-titlebar}}
     {{> body}}
     {{> footer}}
     <script src="{{root}}assets/js/app.js"></script>
+    <!-- loading script won't work this way... 
+    <script src="{{root}}assets/js/scripts.js"></script> -->
   </body>
 </html>

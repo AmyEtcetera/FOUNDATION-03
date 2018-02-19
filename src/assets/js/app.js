@@ -7,13 +7,11 @@ import Foundation from 'foundation-sites';
 // the line below
 //import './lib/foundation-explicit-pieces';
 
+// The .foundation() function on the jQuery object will kick off every Foundation plugin at once.
 $(document).foundation();
 
-
-// my stuff
-   // console.log('say why');
-
-  // okay you can put the jquery right here, nbd
-  //$("#powerbutton").click(function(){
-  //     $("p").toggle();
- //});
+// my scribble below...
+// and this works, not sure about in a build, but I would rather have it separate
+$(function() {
+     $("p").css("border", "3px solid red");
+});

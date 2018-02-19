@@ -1,16 +1,17 @@
 ---
 title: Page Title - The Other Way
 description: The Other Way is the best way, sometimes. Learn more.
+special-footer: true
 ---
 <div class="grid-container">
   <div class="grid-x">
     <div class="cell">
 
     <h1>{{title}}</h1>
-    <p>This page uses <code>front matter, for title</code> in the h1, and <code>front-matter-defined description</code> in a paragraph, and <code>for the page</code> in the h2 (you are here). These are defined in the header between the dashes, aka FRONT MATTER.</p>
-    <p>Description from page's front matter: &quot;{{description}}&quot;</p>
-    <h2>You are here: <strong>{{page}}</strong> is page name defined by the actual document name</h2><br>
-    
+    <p>This page uses <code>front matter, for the title</code> in the h1, and <code>front-matter-defined description</code> in a paragraph, and for defining the text in the h2 below. These Handlebar variables are defined in the header between the dashes, aka FRONT MATTER.</p>
+    <p class="callout">Description from page's front matter: &quot;{{description}}&quot;</p>
+    <h2>This content - &quot;<strong>{{page}}</strong>&quot; - is defined by the document's file name.</h2><br>
+    <p>Did you know you can have your partial detect a layout and then provide content only for that layout?</p>
     </div>
   </div>
 </div>

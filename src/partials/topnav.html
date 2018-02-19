@@ -7,7 +7,7 @@
   </div>
 </div>-->
 
-<nav role="navigation" class="above-all" data-sticky-container><!-- If a page includes more than one navigation landmark, each should have a unique label.
+<nav role="navigation" class="above-all" data-sticky-container><!-- data attributes are for talking to javascript --><!-- If a page includes more than one navigation landmark, each should have a unique label.
     Each navigation landmark should have an h2 element, which maybe rendered off screen.
     If there are more than one navigation landmarks on the page, use aria-labelledby to reference the h2 elements for labeling each landmark:
     <nav aria-labelledby="nav2">
@@ -47,20 +47,32 @@
           <li><a href="#">Policy</a></li>
         </ul>
       </li>
-      <li><a href="#">Education and Training</a></li>
-      <li class="active"><a href="#">Services</a></li>
+      <li><a href="#">Education and Training</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#">Sample</a></li>
+          <li><a href="#">Sample</a></li>
+          <li><a href="#">Sample</a></li>
+        </ul>
+      </li>
+      <li class="active"><a href="#">Services</a>
+        <ul class="submenu menu vertical" data-submenu>
+          <li><a href="#">Sample</a></li>
+          <li><a href="#">Sample</a></li>
+          <li><a href="#">Sample</a></li>
+        </ul>
+      </li>
       <li><a href="#">Research</a></li>
       <li><a href="#">Calendar</a></li>
       <li><a href="#">News</a></li>
     </ul>
   </div>
-
+<!--
   <div class="top-bar-right">
     <ul class="menu">
       <li><input type="search" placeholder="Search" class="nav-search-input"></li>
       <li><button type="button" class="button nav-search-input-btn">Search</button></li>
     </ul>
-  </div>
+  </div> -->
 
 </div>
 

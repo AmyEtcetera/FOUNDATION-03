@@ -1,9 +1,9 @@
 personArray:
   -
     fullname : "Amy L"
-    title : "Staff Auteur"
+    title : "This is yml"
     link : "http://www.google.com"
   -
     fullname : "Cat Dog"
-    title : "Runner"
+    title : "also yml"
     link : "http://www.cnn.com"
